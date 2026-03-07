@@ -1,1 +1,36 @@
-# Phase-1-Portfolio-Project
+# Facebook Engagement Prediction
+This project uses a Facebook dataset to understand what makes a post get more interactions (likes, comments, shares). The goal is to build a simple machine learning model that tries to predict how much engagement a post will get before it is posted.
+
+## 1.Dataset
+The data comes from the UCI Machine Learning Repository:https://archive.ics.uci.edu/dataset/368/facebook+metrics
+The data contains 500 Facebook posts from a real business page.
+Each row is one post, and it includes things like: what type of post it was (Photo, Status, Link, Video),what day and time it was posted, whether the post was paid/boosted, how many likes, comments, and shares it got,total interactions (our target)
+
+## What I did(Explore and Transform sections) - 
+First, I looked at the data to understand patterns. Some simple findings:
+Photo and Video posts usually get more interactions
+Paid posts tend to perform better
+Posting time (hour of day) shows some patterns
+Engagement numbers are very skewed — a few posts go viral, most don’t
+Then,I looked at the data to understand patterns. Some simple findings:
+Photo and Video posts usually get more interactions
+Paid posts tend to perform better
+Posting time (hour of day) shows some patterns
+Engagement numbers are very skewed — a few posts go viral, most don’t
+Lastly, To help the model learn better, I created new features:
+Grouped post types into Visual (Photo/Video) and Text (Status/Link)
+Grouped posting hours into Morning, Afternoon, Evening, Night
+Turned categories into dummy variables (0s and 1s)
+Applied a log transform to the target (Total Interactions) to reduce skew
+
+## Modeling(Linear Regression)
+I used a Linear Regression model because it’s simple and easy to interpret.
+Model Results
+R² = 0.069
+RMSE (log scale) = 0.993
+What this means (in plain English)
+The model explains about 7% of why posts get more or fewer interactions
+The predictions are not very accurate
+Social media engagement is hard to predict with simple features
+Things like content quality, topic, and virality matter a lot but are not in the dataset
+
